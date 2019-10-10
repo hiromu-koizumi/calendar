@@ -3,11 +3,11 @@ import {deleteTodo} from '../../FirebaseAction'
 
 
 
-const DoneButton = ({todoData,month}) => {
+const DoneButton = ({todoData,month,setTodo,todo,todoIndex}) => {
 
     const onClick = () =>{
         console.log(todoData)
-        deleteTodo(todoData,month)
+        deleteTodo(todoData,month,setTodo,todo,todoIndex)
     }
 
        return (

@@ -20,7 +20,7 @@ export const addTodo = (todo,day,month) => {
 }
 
 
-export const fetchTodo = (month,setTodoList) => {
+export const fetchMonthTodo = (month,setTodoList) => {
 
   var newTodoData=[];
   for (var count = 0; count < 32; count++) {
@@ -44,9 +44,34 @@ export const fetchTodo = (month,setTodoList) => {
   }
 }
 
+export const fetchDayTodo = (day,month,setTodo) => {
 
-export const deleteTodo = (todoData,month) => {
+  var newTodoData=[];
+  db.collection("todo").doc(month).collection(day).get()
+      .then(function(querySnapshot){
+        if(querySnapshot)
+        querySnapshot.forEach(function(doc){
+          //idの追加、無駄な要素を削除するために展開している
+          const data = {
+            todo:doc.data().todo,
+            docId:doc.id,
+            day:doc.data().day
+          }
+          newTodoData.push(data)
+      })
+      if (newTodoData.length >= 1){
+          setTodo(newTodoData)
+      }
+    });
+  }
+
+
+
+export const deleteTodo = (todoData,month,setTodo,todo,todoIndex) => {
   db.collection("todo").doc(month).collection(todoData.day).doc(todoData.docId).delete().then(function() {
+    todo.splice(todoIndex,1)
+    const newTodo = [...todo]
+    setTodo(newTodo)
     console.log("Document successfully deleted!");
 }).catch(function(error) {
     console.error("Error removing document: ", error);

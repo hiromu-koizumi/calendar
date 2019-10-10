@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import DoneButton from './DoneButton'
 
-const DetailTodoList = ({todo,month}) => {
+const DetailTodoList = ({todo,month,setTodo}) => {
 
   return (
     <>
@@ -9,7 +9,7 @@ const DetailTodoList = ({todo,month}) => {
         todo.map((item,i)=>(
           <div key={i}>
             {item.todo}
-            <DoneButton todoData={item} month={month}/>
+            <DoneButton setTodo={setTodo}　todoIndex={i} todo={todo} todoData={item} month={month}/>
           </div>
         ))
     :""

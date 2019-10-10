@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import {BrowserRouter as Router, Route,Link,Switch} from 'react-router-dom';
-import {fetchTodo} from '../FirebaseAction'
+import {fetchMonthTodo} from '../FirebaseAction'
 import Todo from './Todo'
 
 
@@ -26,7 +26,7 @@ const CalendarPage = () => {
   useEffect(() => {
     var count;
     for (count = 0; count < 32; count++) {
-      fetchTodo(""+year+month,setTodoList)    
+      fetchMonthTodo(""+year+month,setTodoList)    
     }
   },[]);
 
