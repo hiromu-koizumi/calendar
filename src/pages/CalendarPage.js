@@ -43,7 +43,7 @@ const CalendarPage = () => {
           {calendar.map((week, i) => (
             <tr key={week.join('')}>
               {week.map((day, j) => (
-                <th className={`${year}${month}${day}`} key={`${i}${j}`}><Link to={{pathname:`/detail/${year}${month}${day}`,state:""+year+month}}>{day}</Link>
+                <th className={`${year}${month}${day}`} key={`${i}${j}`}><Link to={{pathname:`/detail/${year}${month}${day}`,state:{month:""+year+month,todo:todoList.filter(x => x.day === ""+year+month+day).length>=1?todoList.filter(x => x.day === ""+year+month+day):""}}}>{day}</Link>
                 {/* stateで遷移先に値を渡している */}
                 <Todo day={""+year+month+day} todoList={todoList}/>
                 </th>

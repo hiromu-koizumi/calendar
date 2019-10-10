@@ -9,5 +9,3 @@ export default {
     measurementId: "G-TDRVPK0Z64"
   };
   // Initialize Firebase
-
-  

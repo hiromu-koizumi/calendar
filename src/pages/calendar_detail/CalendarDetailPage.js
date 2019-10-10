@@ -1,14 +1,14 @@
 import React, { useState } from 'react'
 import {Router, Route,Link,Switch} from 'react-router-dom';
 import Form from './Form';
+import DetailTodoList from './DetailTodoList';
 import { addTodo } from '../../FirebaseAction';
 
 
 const CalendarDetailPage = (props) => {
 
   const [todo, setTodo] = useState();
-
-  console.log(props.location.state)
+  console.log(props.location.state.todo)
   
   // データ保存
  const handleAdd= (e) => {
@@ -18,7 +18,7 @@ const CalendarDetailPage = (props) => {
     // setStateを使ってstateを上書き
     setTodo({todo: e.target.title.value})
 
-    addTodo(e.target.title.value,props.match.params.id,props.location.state)
+    addTodo(e.target.title.value,props.match.params.id,props.location.state.month)
     
     // inputのvalueを空に
     e.target.title.value = ''
@@ -26,6 +26,8 @@ const CalendarDetailPage = (props) => {
   return (
     <>
       <Form handleAdd={handleAdd}/>
+      <DetailTodoList todo={props.location.state.todo}/>
+
     </>
   )
 }
