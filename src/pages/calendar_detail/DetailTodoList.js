@@ -1,11 +1,8 @@
 import React, { useState } from 'react'
-import {Router, Route,Link,Switch} from 'react-router-dom';
-import TodoList from './DetailTodoList';
-import { addTodo } from '../../FirebaseAction';
-
 
 const DetailTodoList = (props) => {
-  
+
+  console.log(props.todo)
   return (
     <>
     { props.todo?
@@ -19,7 +16,6 @@ const DetailTodoList = (props) => {
     </>
   )
 }
-
 
 
 export default DetailTodoList;

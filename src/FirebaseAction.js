@@ -13,7 +13,6 @@ export const addTodo = (todo,day,month) => {
     day:day,
     created: firebase.firestore.FieldValue.serverTimestamp()
     }).then(doc => {
-        console.log(`${doc.id}をDBに保存した`);
       })
       .catch(error => {
         console.log(error);
