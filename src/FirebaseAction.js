@@ -8,7 +8,7 @@ const db = firebase.firestore();
 
 
 export const addTodo = (todo,day,month) => {
-  db.collection('todo').doc(month).collection("detail").doc(day).set({
+  db.collection('todo').doc(month).collection(day).doc().set({
     todo:todo,
     day:day,
     created: firebase.firestore.FieldValue.serverTimestamp()
@@ -24,9 +24,10 @@ export const addTodo = (todo,day,month) => {
 export const fetchTodo = (month,setTodoList) => {
 
   var newTodoData=[];
-    
-    db.collection('todo').doc(month).collection('detail').get()
+  for (var count = 0; count < 32; count++) {
+    db.collection('todo').doc(month).collection(""+month+count).get()
       .then(function(querySnapshot){
+        if(querySnapshot)
         querySnapshot.forEach(function(doc){
           newTodoData.push(doc.data())
       })
@@ -34,5 +35,6 @@ export const fetchTodo = (month,setTodoList) => {
           setTodoList(newTodoData)
       }
     });
+  }
   }
   
