@@ -31,7 +31,7 @@ const CalendarDetailPage = (props) => {
   return (
     <>
       <Form handleAdd={handleAdd}/>
-      <DetailTodoList todo={todo}/>
+      <DetailTodoList todo={todo} month={props.location.state.month}/>
     </>
   )
 }

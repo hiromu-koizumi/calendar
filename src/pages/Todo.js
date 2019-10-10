@@ -2,7 +2,6 @@ import React,{useEffect} from 'react';
 
 const Todo = ({day,todoList}) => {
    
-
     return (
         <>
             <div>

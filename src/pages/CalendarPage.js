@@ -30,6 +30,7 @@ const CalendarPage = () => {
     }
   },[]);
 
+  console.log(todoList)
 
   return (
     <>

@@ -1,14 +1,15 @@
 import React, { useState } from 'react'
+import DoneButton from './DoneButton'
 
-const DetailTodoList = (props) => {
+const DetailTodoList = ({todo,month}) => {
 
-  console.log(props.todo)
   return (
     <>
-    { props.todo?
-        props.todo.map((item,i)=>(
+    {todo?
+        todo.map((item,i)=>(
           <div key={i}>
             {item.todo}
+            <DoneButton todoData={item} month={month}/>
           </div>
         ))
     :""
