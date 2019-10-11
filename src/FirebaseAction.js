@@ -24,7 +24,7 @@ export const fetchMonthTodo = (month,setTodoList) => {
 
   var newTodoData=[];
   for (var count = 0; count < 32; count++) {
-    db.collection('todo').doc(month).collection(""+month+count).get()
+    db.collection('todo').doc(month).collection(""+month+count).orderBy('created').get()
       .then(function(querySnapshot){
         if(querySnapshot)
         querySnapshot.forEach(function(doc){
@@ -47,7 +47,7 @@ export const fetchMonthTodo = (month,setTodoList) => {
 export const fetchDayTodo = (day,month,setTodo) => {
 
   var newTodoData=[];
-  db.collection("todo").doc(month).collection(day).get()
+  db.collection("todo").doc(month).collection(day).orderBy('created').get()
       .then(function(querySnapshot){
         if(querySnapshot)
         querySnapshot.forEach(function(doc){

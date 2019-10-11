@@ -12,7 +12,6 @@ const CalendarDetailPage = (props) => {
 // 　トップページから渡されたタスクをstateに保存している
   useEffect(() => {
     fetchDayTodo(props.match.params.id,props.location.state.month,setTodo)
-    setTodo(props.location.state.todo)
   },[]);
 
   const getDayTodo = () =>{

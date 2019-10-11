@@ -49,19 +49,15 @@ const CalendarPage = (props) => {
             <th>水</th>
             <th>木</th>
             <th>金</th>
-            <th>日</th>
+            <th>土</th>
           </tr>
           {calendar.map((week, i) => (
             <tr key={week.join('')}>
               {week.map((day, j) => (
                 <th className={`calendar-${day}`} key={`${i}${j}`}>
-        {/*       todoListの中にこの日のタスクがあるかfilterでチェックしている。
-                  あればそのタスクをstateで遷移先に値を渡している　　　　　　　　    */}
                   <Link to={{pathname:`/detail/${year}${month}${day}`,
-                  state:{month:""+year+month,
-                    todo:todoList.filter(x => x.day === ""+year+month+day).length>=1
-                      ? todoList.filter(x => x.day === ""+year+month+day) : ""}}}>
-                      {day}
+                  state:{month:""+year+month}}}>
+                    {day}
                     <Todo day={""+year+month+day} todoList={todoList}/>
                   </Link>
                 </th>
