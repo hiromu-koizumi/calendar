@@ -1,0 +1,33 @@
+.calendar-table{
+    width:100%;
+    border-collapse: collapse;
+
+    //表を固定幅にするために必要
+    table-layout: fixed;
+}
+
+th{
+    margin: 2em 0;
+    font-weight: bold;
+    background: #FFF;
+    border: solid 1px #dadce0;/*線*/
+    border-radius: 2px;/*角の丸み*/
+    height: 80px;
+
+}
+.calendar-null{
+    border: none;
+}
+
+.calendar-todo{
+    //はみ出したタスクを省略
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.calendar-day{
+    th{
+        border:none;
+    }
+}

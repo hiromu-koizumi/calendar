@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import DoneButton from './DoneButton'
+import './style.scss'
 
 const DetailTodoList = ({todo,month,setTodo}) => {
 
@@ -7,9 +8,13 @@ const DetailTodoList = ({todo,month,setTodo}) => {
     <>
     {todo?
         todo.map((item,i)=>(
-          <div key={i}>
-            {item.todo}
-            <DoneButton setTodo={setTodo}　todoIndex={i} todo={todo} todoData={item} month={month}/>
+          <div key={i} className="flex">
+            <div>
+              <DoneButton setTodo={setTodo}　todoIndex={i} todo={todo} todoData={item} month={month}/>
+            </div>
+            <div>
+              {item.todo}
+            </div>
           </div>
         ))
     :""

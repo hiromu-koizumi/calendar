@@ -1,6 +1,6 @@
 import React from 'react'
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
-import CalendarPage from './pages/CalendarPage';
+import CalendarPage from './pages/calendar/CalendarPage';
 import CalendarDetailPage from './pages/calendar_detail/CalendarDetailPage';
 
 

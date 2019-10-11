@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from 'react'
 import {BrowserRouter as Router, Route,Link,Switch} from 'react-router-dom';
-import {fetchMonthTodo} from '../FirebaseAction'
+import {fetchMonthTodo} from '../../FirebaseAction'
 import Todo from './Todo'
+import './style.scss'
 
 
-const CalendarPage = () => {
+const CalendarPage = (props) => {
   const [year, setYear] = useState(new Date().getFullYear())
   const [month, setMonth] = useState(new Date().getMonth() + 1)
   const [todoList, setTodoList] = useState([]);
   const calendar = createCalendar(year, month)
+
   const onClick = (n) => () => {
     const nextMonth = month + n
     if (12 < nextMonth) {
@@ -30,7 +32,6 @@ const CalendarPage = () => {
     }
   },[]);
 
-  console.log(todoList)
 
   return (
     <>
@@ -39,12 +40,21 @@ const CalendarPage = () => {
         <button onClick={onClick(-1)}>{'prev'}</button>
         <button onClick={onClick(1)}>{'next'}</button>
       </div>
-      <table>
+      <table className="calendar-table">
         <tbody>
+          <tr　className="calendar-day">
+            <th>日</th>
+            <th>月</th>
+            <th>火</th>
+            <th>水</th>
+            <th>木</th>
+            <th>金</th>
+            <th>日</th>
+          </tr>
           {calendar.map((week, i) => (
             <tr key={week.join('')}>
               {week.map((day, j) => (
-                <th className={`${year}${month}${day}`} key={`${i}${j}`}>
+                <th className={`calendar-${day}`} key={`${i}${j}`}>
         {/*       todoListの中にこの日のタスクがあるかfilterでチェックしている。
                   あればそのタスクをstateで遷移先に値を渡している　　　　　　　　    */}
                   <Link to={{pathname:`/detail/${year}${month}${day}`,
@@ -52,8 +62,8 @@ const CalendarPage = () => {
                     todo:todoList.filter(x => x.day === ""+year+month+day).length>=1
                       ? todoList.filter(x => x.day === ""+year+month+day) : ""}}}>
                       {day}
+                    <Todo day={""+year+month+day} todoList={todoList}/>
                   </Link>
-                <Todo day={""+year+month+day} todoList={todoList}/>
                 </th>
               ))}
             </tr>

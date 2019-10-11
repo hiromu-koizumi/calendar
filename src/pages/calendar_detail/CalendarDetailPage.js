@@ -34,10 +34,10 @@ const CalendarDetailPage = (props) => {
 
 
   return (
-    <>
+    <div className="ui container">
       <Form handleAdd={handleAdd}/>
       <DetailTodoList　setTodo={setTodo} todo={todo} month={props.location.state.month}/>
-    </>
+    </div>
   )
 }
 
