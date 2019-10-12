@@ -11,8 +11,8 @@ const DoneButton = ({todoData,month,setTodo,todo,todoIndex}) => {
     }
 
        return (
-        <button class="ui icon button"  onClick={onClick}>
-            <i class="check circle outline icon"></i>
+        <button className="done-button"  onClick={onClick}>
+            <i className="check circle outline icon"></i>
         </button>
        )
 };

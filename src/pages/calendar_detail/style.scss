@@ -1,3 +1,70 @@
 .flex {
     display: flex;
 }
+
+.calendar-detail-wrap{
+    margin-top:1rem;
+}
+
+.todo-add-button{
+    text-align: center;
+    margin-top:2rem;
+    button{
+        background:#2b339c;
+        color:white;
+        border-radius: 4px;
+        padding: 10px 20px;
+        margin: 0;
+        border: none;
+        cursor: pointer;
+        width:100%;
+    }
+}
+
+.todo-input {
+    margin-top:4rem;
+    font-size:1rem;
+	box-sizing: border-box;
+	width: 100%;
+	padding: 0.7em;
+	letter-spacing: 1px;
+	border: 1px solid #dadce0;
+    border-radius: 4px;
+}
+
+.done-button{
+    color: #2b339c;
+    font-size: 26px;
+    padding: 0;
+    background: transparent;
+    border:none;
+}
+
+.calendar-detail-todo{
+    vertical-align: middle;
+    position: relative;
+    top: 5px;
+}
+
+.back-button {
+    font-size: 25px;
+    background: transparent;
+    border:none;
+    padding:0px;
+    padding-top: 1rem;
+    position: relative;
+    color:gray;
+  }
+
+  .back-button-wrap{
+    position: fixed;
+    z-index: 5;
+  }
+
+  .calendar-detail-todo-wrap{
+    padding-top: 5rem;
+  }
+
+  .calendar-detail-todo-inner{
+      margin-bottom:1rem;
+  }
