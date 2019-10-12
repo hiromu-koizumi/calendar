@@ -35,10 +35,10 @@ const CalendarPage = (props) => {
 
   return (
     <>
-      <h1>{`${year}年${month}月`}</h1>
-      <div>
-        <button onClick={onClick(-1)}>{'prev'}</button>
-        <button onClick={onClick(1)}>{'next'}</button>
+      <h1 className="calendar-title">{`${year}年${month}月`}</h1>
+      <div className="calendar-button">
+        <button className='calendar-button-prev' onClick={onClick(-1)}><i className="angle left icon"></i></button>
+        <button className='calendar-button-next' onClick={onClick(1)}><i className="angle right icon"></i></button>
       </div>
       <table className="calendar-table">
         <tbody>

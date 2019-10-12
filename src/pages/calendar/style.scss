@@ -31,3 +31,22 @@ th{
         border:none;
     }
 }
+
+.calendar-title{
+    text-align:center;
+}
+
+.calendar-button {
+    button{
+        font-size: 25px;
+        background: transparent;
+        border:none;
+        padding:0px;
+        padding-top: 1rem;
+        position: relative;
+        color:gray;
+    }
+    &-next{
+        float: right;
+    }
+  }
