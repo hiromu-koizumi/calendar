@@ -21,6 +21,10 @@ const CalendarDetailPage = (props) => {
  const handleAdd= (e) => {
     e.preventDefault()
 
+    if(e.target.title.value===""){
+      return;
+    }
+    
     getDayTodo()
 
     //firebaseに保存する処理
