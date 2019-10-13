@@ -36,7 +36,9 @@ const CalendarDetailPage = (props) => {
       <div className="back-button-wrap">
         <button className='back-button' onClick={() => props.history.goBack()}><i className="angle left icon"></i></button>
       </div>
-      
+      <div className="calendar-detail-day">
+        {props.location.state.month}月{props.location.state.day}日
+      </div>
       <DetailTodoList　setTodo={setTodo} todo={todo} yearMonth={props.location.state.yearMonth}/>
       <Form handleAdd={handleAdd}/>
     </div>

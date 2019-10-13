@@ -2,8 +2,30 @@
     display: flex;
 }
 
-.calendar-detail-wrap{
-    margin-top:1rem;
+.calendar-detail{
+    &-wrap{
+        margin-top:1rem;
+    }
+
+    &-todo{
+        vertical-align: middle;
+        position: relative;
+        top: 5px;
+
+        &-wrap{
+            padding-top: 4rem;
+        }
+
+        &-inner{
+            margin-bottom:1rem;
+        }
+    }
+
+    &-day{
+        text-align:center;
+        font-size:1.3rem;
+    }
+
 }
 
 .todo-add-button{
@@ -40,19 +62,14 @@
     border:none;
 }
 
-.calendar-detail-todo{
-    vertical-align: middle;
-    position: relative;
-    top: 5px;
-}
 
 .back-button {
     font-size: 25px;
     background: transparent;
     border:none;
     padding:0px;
-    padding-top: 1rem;
     position: relative;
+    top: -3px;
     color:gray;
   }
 
@@ -61,10 +78,6 @@
     z-index: 5;
   }
 
-  .calendar-detail-todo-wrap{
-    padding-top: 5rem;
-  }
+  
 
-  .calendar-detail-todo-inner{
-      margin-bottom:1rem;
-  }
+  
