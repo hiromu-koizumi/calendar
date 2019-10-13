@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import {BrowserRouter as Router, Route,Link,Switch} from 'react-router-dom';
+//Router消すと画面遷移できなくなる
+import {BrowserRouter as Router,Link} from 'react-router-dom';
 import {fetchMonthTodo} from '../../FirebaseAction'
 import Todo from './Todo'
 import './style.scss'
@@ -26,19 +27,16 @@ const CalendarPage = (props) => {
 
   
   useEffect(() => {
-    var count;
-    for (count = 0; count < 32; count++) {
       fetchMonthTodo(""+year+month,setTodoList)    
-    }
   },[]);
 
 
   return (
     <>
-      <h1 className="calendar-title">{`${year}年${month}月`}</h1>
+      <div className="calendar-title">{`${year}年${month}月`}</div>
       <div className="calendar-button">
-        <button className='calendar-button-prev' onClick={onClick(-1)}><i className="angle left icon"></i></button>
-        <button className='calendar-button-next' onClick={onClick(1)}><i className="angle right icon"></i></button>
+        <button className='calendar-button-prev' onClick={onClick(-1)}><i className="caret left icon"></i></button>
+        <button className='calendar-button-next' onClick={onClick(1)}><i className="caret right icon"></i></button>
       </div>
       <table className="calendar-table">
         <tbody>

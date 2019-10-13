@@ -20,28 +20,41 @@ export const addTodo = (todo,day,month) => {
 }
 
 
-export const fetchMonthTodo = (month,setTodoList) => {
+export const fetchMonthTodo =  async(month,setTodoList) => {
 
+  let count = 0;
   var newTodoData=[];
-  for (var count = 0; count < 32; count++) {
-    db.collection('todo').doc(month).collection(""+month+count).orderBy('created').get()
-      .then(function(querySnapshot){
-        if(querySnapshot)
-        querySnapshot.forEach(function(doc){
 
-          //idの追加、無駄な要素を削除するために展開している
-          const data = {
-            todo:doc.data().todo,
-            docId:doc.id,
-            day:doc.data().day
-          }
-          newTodoData.push(data)
+  const addState =　(querySnapshot)　=>　{
+      count+=1;
+      if(querySnapshot)
+      querySnapshot.forEach(function(doc){
+
+        //idの追加、無駄な要素を削除するために展開している
+        const data = {
+          todo:doc.data().todo,
+          docId:doc.id,
+          day:doc.data().day
+        }
+        newTodoData.push(data)
+        
       })
-      if (newTodoData.length >= 1){
-          setTodoList(newTodoData)
-      }
-    });
-  }
+    //一ヶ月のデータの取得が終わったタイミングでstateを更新するためにif文が必要
+      if(count===32){
+        setTodoList(newTodoData)
+      } 
+    }
+    for (let day = 0; day < 32; day++) {
+        db.collection('todo').doc(month).collection(""+month+day).orderBy('created').get()
+        .then(
+        function(querySnapshot){
+          addState(querySnapshot)
+        }
+      );
+             
+    }
+  
+  
 }
 
 export const fetchDayTodo = (day,month,setTodo) => {

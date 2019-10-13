@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import {Router, Route,Link,Switch} from 'react-router-dom';
 import Form from './Form';
 import DetailTodoList from './DetailTodoList';
 import { addTodo, fetchDayTodo } from '../../FirebaseAction';
