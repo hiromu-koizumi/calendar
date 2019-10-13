@@ -7,8 +7,8 @@ firebase.initializeApp(config);
 const db = firebase.firestore();
 
 
-export const addTodo = (todo,day,month) => {
-  db.collection('todo').doc(month).collection(day).doc().set({
+export const addTodo = (todo,day,yearMonth) => {
+  db.collection('todo').doc(yearMonth).collection(day).doc().set({
     todo:todo,
     day:day,
     created: firebase.firestore.FieldValue.serverTimestamp(),
@@ -20,7 +20,7 @@ export const addTodo = (todo,day,month) => {
 }
 
 
-export const fetchMonthTodo =  async(month,setTodoList) => {
+export const fetchMonthTodo =  async(yearMonth,setTodoList) => {
 
   let count = 0;
   var newTodoData=[];
@@ -45,7 +45,7 @@ export const fetchMonthTodo =  async(month,setTodoList) => {
       } 
     }
     for (let day = 0; day < 32; day++) {
-        db.collection('todo').doc(month).collection(""+month+day).orderBy('created').get()
+        db.collection('todo').doc(yearMonth).collection(""+yearMonth+day).orderBy('created').get()
         .then(
         function(querySnapshot){
           addState(querySnapshot)
@@ -57,10 +57,10 @@ export const fetchMonthTodo =  async(month,setTodoList) => {
   
 }
 
-export const fetchDayTodo = (day,month,setTodo) => {
+export const fetchDayTodo = (day,yearMonth,setTodo) => {
 
   var newTodoData=[];
-  db.collection("todo").doc(month).collection(day).orderBy('created').get()
+  db.collection("todo").doc(yearMonth).collection(day).orderBy('created').get()
       .then(function(querySnapshot){
         if(querySnapshot)
         querySnapshot.forEach(function(doc){
@@ -80,8 +80,8 @@ export const fetchDayTodo = (day,month,setTodo) => {
 
 
 
-export const deleteTodo = (todoData,month,setTodo,todo,todoIndex) => {
-  db.collection("todo").doc(month).collection(todoData.day).doc(todoData.docId).delete().then(function() {
+export const deleteTodo = (todoData,yearMonth,setTodo,todo,todoIndex) => {
+  db.collection("todo").doc(yearMonth).collection(todoData.day).doc(todoData.docId).delete().then(function() {
     todo.splice(todoIndex,1)
     const newTodo = [...todo]
     setTodo(newTodo)

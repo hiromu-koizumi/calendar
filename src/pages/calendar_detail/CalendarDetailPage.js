@@ -10,11 +10,11 @@ const CalendarDetailPage = (props) => {
 
 // 　トップページから渡されたタスクをstateに保存している
   useEffect(() => {
-    fetchDayTodo(props.match.params.id,props.location.state.month,setTodo)
+    fetchDayTodo(props.match.params.id,props.location.state.yearMonth,setTodo)
   },[]);
 
   const getDayTodo = () =>{
-    fetchDayTodo(props.match.params.id,props.location.state.month,setTodo)
+    fetchDayTodo(props.match.params.id,props.location.state.yearMonth,setTodo)
   }
   
   // データ保存
@@ -24,7 +24,7 @@ const CalendarDetailPage = (props) => {
     getDayTodo()
 
     //firebaseに保存する処理
-    addTodo(e.target.title.value,props.match.params.id,props.location.state.month)
+    addTodo(e.target.title.value,props.match.params.id,props.location.state.yearMonth)
     
     // inputのvalueを空に
     e.target.title.value = ''
@@ -36,7 +36,8 @@ const CalendarDetailPage = (props) => {
       <div className="back-button-wrap">
         <button className='back-button' onClick={() => props.history.goBack()}><i className="angle left icon"></i></button>
       </div>
-      <DetailTodoList　setTodo={setTodo} todo={todo} month={props.location.state.month}/>
+      
+      <DetailTodoList　setTodo={setTodo} todo={todo} yearMonth={props.location.state.yearMonth}/>
       <Form handleAdd={handleAdd}/>
     </div>
   )

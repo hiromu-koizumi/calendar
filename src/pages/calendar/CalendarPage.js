@@ -54,7 +54,7 @@ const CalendarPage = (props) => {
               {week.map((day, j) => (
                 <th className={`calendar-${day}`} key={`${i}${j}`}>
                   <Link to={{pathname:`/detail/${year}${month}${day}`,
-                  state:{month:""+year+month}}}>
+                  state:{yearMonth:""+year+month,}}}>
                     {day}
                     <Todo day={""+year+month+day} todoList={todoList}/>
                   </Link>

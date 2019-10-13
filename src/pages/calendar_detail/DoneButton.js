@@ -2,10 +2,10 @@ import React from 'react';
 import {deleteTodo} from '../../FirebaseAction'
 
 
-const DoneButton = ({todoData,month,setTodo,todo,todoIndex}) => {
+const DoneButton = ({todoData,yearMonth,setTodo,todo,todoIndex}) => {
 
     const onClick = () =>{
-        deleteTodo(todoData,month,setTodo,todo,todoIndex)
+        deleteTodo(todoData,yearMonth,setTodo,todo,todoIndex)
     }
 
     return (
