@@ -28,31 +28,37 @@
 
 }
 
-.todo-add-button{
-    text-align: center;
-    margin-top:2rem;
-    button{
-        background:#d32f26;
-        color:white;
-        border-radius: 4px;
-        padding: 10px 20px;
-        margin: 0;
-        border: none;
-        cursor: pointer;
-        width:100%;
+.todo{
+
+    &-add-button{
+        text-align: center;
+        margin-top:2rem;
+
+        button{
+            background:#d32f26;
+            color:white;
+            border-radius: 4px;
+            padding: 10px 20px;
+            margin: 0;
+            border: none;
+            cursor: pointer;
+            width:100%;
+        }
     }
+
+    &-input {
+        margin-top:4rem;
+        font-size:1rem;
+        box-sizing: border-box;
+        width: 100%;
+        padding: 0.7em;
+        letter-spacing: 1px;
+        border: 1px solid #dadce0;
+        border-radius: 4px;
+    }
+
 }
 
-.todo-input {
-    margin-top:4rem;
-    font-size:1rem;
-	box-sizing: border-box;
-	width: 100%;
-	padding: 0.7em;
-	letter-spacing: 1px;
-	border: 1px solid #dadce0;
-    border-radius: 4px;
-}
 
 .done-button{
     color: #d32f26;
@@ -71,12 +77,12 @@
     position: relative;
     top: -3px;
     color:gray;
-  }
 
-  .back-button-wrap{
-    position: fixed;
-    z-index: 5;
-  }
+    &-wrap{
+        position: fixed;
+        z-index: 5;
+    }
+}
 
   
 

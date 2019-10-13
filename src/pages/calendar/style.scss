@@ -1,15 +1,60 @@
-.calendar-table{
-    width:100%;
-    border-collapse: collapse;
-    table-layout: fixed;/*表を固定幅にするために必要*/
+.calendar{
+    &-table{
+        width:100%;
+        border-collapse: collapse;
+        table-layout: fixed;/*表を固定幅にするために必要*/
+    }
+
+    &-null{
+        border: none;
+    }
+
+    &-todo{
+        //はみ出したタスクを省略
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        font-size: 0.2rem;
+        color:#d32f26;
+    }
+
+    &-day{
+        th{
+            border:none;
+        }
+    }
+
+    &-title{
+        text-align:center;
+        margin-top:1rem;
+        font-size: 1.3rem;
+    }
+
+    &-button{
+
+        button{
+            font-size: 18px;
+            background: transparent;
+            border:none;
+            padding:0px;
+            padding-top: 1rem;
+            position: relative;
+            color:gray;
+        }
+
+        &-next{
+            float: right;
+        }
+    }
 }
+
 
 th{
     margin: 2em 0;
     font-weight: bold;
     background: #FFF;
-    border-top: solid 1px #eaeaea;/*線*/
-    border-radius: 2px;/*角の丸み*/
+    border-top: solid 1px #eaeaea;
+    border-radius: 2px;
     height: 80px;
 
     a{
@@ -17,42 +62,3 @@ th{
 
     }
 }
-.calendar-null{
-    border: none;
-}
-
-.calendar-todo{
-    //はみ出したタスクを省略
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-    font-size: 0.2rem;
-    color:#d32f26;
-}
-
-.calendar-day{
-    th{
-        border:none;
-    }
-}
-
-.calendar-title{
-    text-align:center;
-    margin-top:1rem;
-    font-size: 1.3rem;
-}
-
-.calendar-button {
-    button{
-        font-size: 18px;
-        background: transparent;
-        border:none;
-        padding:0px;
-        padding-top: 1rem;
-        position: relative;
-        color:gray;
-    }
-    &-next{
-        float: right;
-    }
-  }
